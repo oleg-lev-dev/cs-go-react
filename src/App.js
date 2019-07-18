@@ -1,16 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-const Wrapper = styled.div`
-  padding: 10px;
-  background: red;
-`;
+import Home from './routes/Home';
+import Header from './components/Header';
 
 function App() {
   return (
-    <Wrapper>
-      Test
-    </Wrapper>
+    <Router>
+      <Header/>
+      <Route path="/" exact component={Home}/>
+    </Router>
   );
 }
 
