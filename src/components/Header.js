@@ -5,18 +5,21 @@ import Wrap from '../components/Wrap'
 import Logo from '../components/Logo'
 import MainMenu from '../components/MainMenu'
 
-const Row = styled.div`
-  height: 90px;
-  border-bottom: 1px solid #eff2f5;        
-  &:last-child {
-    border-bottom: none;
-  }        
+const Row = styled(Wrap)`
+  height: 90px;             
+  display: flex;
+  justify-content: space-between; 
 `;
 
-const RowIn = styled(Wrap)`
+const Divider = styled.div`
+  background: #eff2f5;
+  height: 1px;
+`;
+
+const Col = styled.div`
+  height: 100%;
   display: flex;
   align-items: center;
-  height: 100%;
 `;
 
 const NavStyled = styled.nav`
@@ -38,23 +41,28 @@ const Support = styled.a`
   }
 `;
 
+
 function Header() {
   return (
     <header>
       <Row>
-        <RowIn>
+        <Col>
           <Logo/>
-        </RowIn>
+        </Col>
       </Row>
+      <Divider/>
       <Row>
-        <RowIn>
+        <Col>
           <Support href="/">
             <img src="/images/icon-support.svg" alt=""/>
           </Support>
           <NavStyled>
             <MainMenu/>
           </NavStyled>
-        </RowIn>
+        </Col>
+        <Col>
+          Right
+        </Col>
       </Row>
     </header>
   );
