@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const WrapDiv = styled.div`
+const StyledWrap = styled.div`
   width: 1645px;
   margin: 0 auto;
 `;
 
-export default function Wrap({children}) {
+function Wrap({children, className}) {
   return (
-    <WrapDiv>{children}</WrapDiv>
+    <StyledWrap className={className}>{children}</StyledWrap>
   );
 }
+
+export default Wrap;

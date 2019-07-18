@@ -2,10 +2,10 @@ import React from 'react';
 
 import Wrap from '../components/Wrap'
 
-export default function Home() {
+export default function Bets() {
   return (
     <Wrap>
-      <h2>Home</h2>
+      <h2>Bets Page</h2>
     </Wrap>
   )
 };
