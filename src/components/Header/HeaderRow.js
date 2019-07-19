@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Wrap from '../Wrap'
+import Wrap from 'components/Wrap'
 
 const HeaderRow = styled(Wrap)`
   height: 90px;             

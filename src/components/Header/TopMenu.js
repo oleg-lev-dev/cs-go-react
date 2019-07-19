@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link, withRouter} from 'react-router-dom';
 
-import Menu from '../Menu';
-import Icon from "../Icon";
-import IconRounded from "../IconRounded";
+import Menu from 'components/Menu';
+import Icon from "components/Icon";
+import IconRounded from "components/IconRounded";
 
 const StyledMenu = styled(Menu)`
   li {

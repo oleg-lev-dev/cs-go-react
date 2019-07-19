@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import HeaderTop from './HeaderTop';
-import HeaderBottom from './HeaderBottom';
+import HeaderTop from 'components/Header/HeaderTop';
+import HeaderBottom from 'components/Header/HeaderBottom';
 
 const Divider = styled.div`
   background: #eff2f5;

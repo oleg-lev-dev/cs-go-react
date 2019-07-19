@@ -2,13 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-import Icon from '../Icon';
-import IconRounded from '../IconRounded';
-import Logo from './Logo';
-import Profile from './Profile';
-import TopMenu from './TopMenu';
-import Col from './HeaderCol';
-import Row from './HeaderRow';
+import Icon from 'components/Icon';
+import IconRounded from 'components/IconRounded';
+import Logo from 'components/Header/Logo';
+import Profile from 'components/Header/Profile';
+import TopMenu from 'components/Header/TopMenu';
+import Col from 'components/Header/HeaderCol';
+import Row from 'components/Header/HeaderRow';
 
 const Button = styled(Link)`
   display: inline-flex;

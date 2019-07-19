@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Menu from '../Menu'
+import Menu from 'components/Menu'
 import {Link, withRouter} from 'react-router-dom';
 
 const StyledNav = styled.nav`
