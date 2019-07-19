@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import ReactSelect from 'react-select';
 
-const SelectWrap = styled.nav`
+const SelectWrap = styled.div`
   color: #3c4252;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
   .react-select__control {
     cursor: pointer;
-    width: 200px;
+    width: 100%;
     border-radius: 0;
     height: 43px;
     border: 1px solid #e8ebf5 !important;
@@ -70,7 +70,6 @@ function Select({value, onChange, options}) {
   return (
     <SelectWrap>
       <ReactSelect
-        //menuIsOpen
         classNamePrefix="react-select"
         isSearchable={false}
         value={value}

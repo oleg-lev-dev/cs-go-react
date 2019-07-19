@@ -5,20 +5,17 @@ import MainMenu from 'components/Header/MainMenu';
 import Col from 'components/Header/HeaderCol';
 import Row from 'components/Header/HeaderRow';
 import Support from 'components/Support';
-import Select from 'components/Select';
+import SelectLanguage from 'components/SelectLanguage';
 
 const NavStyled = styled.nav`
   height: 100%;
 `;
 
-const options = [
-  {value: 'chocolate', label: 'Chocolate'},
-  {value: 'strawberry', label: 'Strawberry'},
-  {value: 'vanilla', label: 'Vanilla'},
-];
+const SelectLanguageWrap = styled.div`
+  width: 105px;
+`;
 
 function HeaderBottom() {
-  const [selectedOption, setSelectedOption] = useState(options[0]);
   return (
     <Row>
       <Col>
@@ -28,12 +25,9 @@ function HeaderBottom() {
         </NavStyled>
       </Col>
       <Col>
-        <Select
-          classNamePrefix="react-select"
-          //styles={customStyles}
-          value={selectedOption}
-          onChange={setSelectedOption}
-          options={options}/>
+        <SelectLanguageWrap>
+          <SelectLanguage/>
+        </SelectLanguageWrap>
       </Col>
     </Row>
   );
