@@ -20,7 +20,6 @@ const StyledMenu = styled.ul`
     display: flex;
     height: 100%;
     text-decoration: none;
-    color: #4c5768;
   }          
 `;
 

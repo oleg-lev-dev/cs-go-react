@@ -24,22 +24,22 @@ const StyledLink = styled(Link)`
 `;
 
 const links = [{
-  route: '/bets',
+  to: '/bets',
   text: 'Ставки'
 }, {
-  route: '/news',
+  to: '/news',
   text: 'Новости'
 }, {
-  route: '/ratings',
+  to: '/ratings',
   text: 'Рейтинги'
 }, {
-  route: '/discounts',
+  to: '/discounts',
   text: 'Скидки'
 }, {
-  route: '/help',
+  to: '/help',
   text: 'Техподдержка'
 }, {
-  route: '/faq',
+  to: '/faq',
   text: 'Как это работает?'
 }];
 
@@ -47,9 +47,9 @@ function MainMenu({location: {pathname}}) {
   return (
     <StyledNav>
       <Menu>
-        {links.map(({route, text}) => (
+        {links.map(({to, text}) => (
           <li>
-            <StyledLink active={pathname === route} to={route}>{text}</StyledLink>
+            <StyledLink active={pathname === to} to={to}>{text}</StyledLink>
           </li>
         ))}
       </Menu>
