@@ -8,18 +8,6 @@ const StyledNav = styled.nav`
   height: 100%;
 `;
 
-const StyledMenu = styled(Menu)`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  ul {
-     height: 100%;
-  }
-  li {
-     height: 100%;
-  }         
-`;
-
 const StyledLink = styled(Link)`
   font-size: 16px;
   font-weight: 700;
@@ -58,13 +46,13 @@ const links = [{
 function MainMenu({location: {pathname}}) {
   return (
     <StyledNav>
-      <StyledMenu>
+      <Menu>
         {links.map(({route, text}) => (
           <li>
             <StyledLink active={pathname === route} to={route}>{text}</StyledLink>
           </li>
         ))}
-      </StyledMenu>
+      </Menu>
     </StyledNav>
   );
 }
