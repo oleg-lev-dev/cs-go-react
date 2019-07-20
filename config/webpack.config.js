@@ -272,7 +272,8 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
-        'components':  path.resolve(__dirname, '../src/components')
+        'components':  path.resolve(__dirname, '../src/components'),
+        'icons':  path.resolve(__dirname, '../src/icons')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -363,6 +364,21 @@ module.exports = function(webpackEnv) {
                 compact: isEnvProduction,
               },
             },
+            {
+              test: /\.svg$/,
+              use:[
+                {
+                  loader: "babel-loader"
+                },
+                {
+                  loader: "react-svg-loader",
+                  options: {
+                    jsx: true // true outputs JSX tags
+                  }
+                }
+              ]
+            },
+
             // Process any JS outside of the app with Babel.
             // Unlike the application JS, we only compile the standard ES features.
             {
@@ -472,7 +488,7 @@ module.exports = function(webpackEnv) {
             // ** STOP ** Are you adding a new loader?
             // Make sure to add the new loader(s) before the "file" loader.
           ],
-        },
+        }
       ],
     },
     plugins: [
