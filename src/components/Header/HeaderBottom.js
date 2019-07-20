@@ -6,6 +6,7 @@ import Col from 'components/Header/HeaderCol';
 import Row from 'components/Header/HeaderRow';
 import Support from 'components/Support';
 import SelectLanguage from 'components/SelectLanguage';
+import MenuSocials from 'components/Header/MenuSocials';
 
 const NavStyled = styled.nav`
   height: 100%;
@@ -13,6 +14,7 @@ const NavStyled = styled.nav`
 
 const SelectLanguageWrap = styled.div`
   width: 105px;
+  margin: 0 0 0 35px;
 `;
 
 function HeaderBottom() {
@@ -25,6 +27,7 @@ function HeaderBottom() {
         </NavStyled>
       </Col>
       <Col>
+        <MenuSocials/>
         <SelectLanguageWrap>
           <SelectLanguage/>
         </SelectLanguageWrap>
