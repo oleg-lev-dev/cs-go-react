@@ -10,6 +10,7 @@ import IconEyeBox from 'icons/eye-box.svg';
 const StyledMenu = styled(Menu)`
   li {
     align-items: center;
+    max-width: 250px;
   }          
 `;
 
@@ -25,6 +26,10 @@ const StyledLink = styled(Link)`
   }
   strong {
     font-weight: 700;  
+  }
+  
+  @media all and (max-width: 1190px){
+    padding: 0 20px;
   }
 `;
 
@@ -60,6 +65,10 @@ const StyledMenuText = styled.span`
   strong {
     display: block;
   }
+  
+  @media all and (max-width: 1190px){
+    padding: 0;
+  }
 `;
 
 const IconRounded = styled.span`
@@ -73,6 +82,18 @@ const IconRounded = styled.span`
 
   &:hover{
     background-color: ${props => props.bgColor};  
+  }
+  
+  @media all and (max-width: 1320px){
+    background-color: transparent;
+    width: 26px;
+    path {
+      fill: ${(props)=>props.bgColor};
+    }
+  }
+  
+  @media all and (max-width: 1190px){
+    display: none;
   }
 `;
 

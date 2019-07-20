@@ -25,9 +25,9 @@ const Wrap = styled(Link)`
   }
 `;
 
-function Button({children}) {
+function Button({className, children}) {
   return (
-    <Wrap>
+    <Wrap className={className}>
       {children}
     </Wrap>
   );

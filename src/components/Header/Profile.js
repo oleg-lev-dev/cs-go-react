@@ -32,12 +32,15 @@ const OnlineStatus = styled.i`
 const ProfileInfo = styled.div`
   padding: 0 0 0 16px;
   font-weight: 400;
+  max-width: 150px;
 `;
 
 const ProfileName = styled(Link)`
   color: #27303b;
   font-size: 16px;
   text-decoration: none;
+  display: block;
+  max-height: 36px;
 `;
 
 const ProfileBalance = styled.div`

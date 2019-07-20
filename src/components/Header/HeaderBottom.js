@@ -17,22 +17,37 @@ const SelectLanguageWrap = styled.div`
   margin: 0 0 0 35px;
 `;
 
+const RowBottom = styled(Row)`
+  @media all and (max-width: 1190px){
+    height: auto;
+    flex-direction: column;
+    padding-top: 20px;   
+  }
+`;
+
+const ColBottom = styled(Col)`
+  @media all and (max-width: 1190px){
+    padding-bottom: 20px;
+  }
+`;
+
+
 function HeaderBottom() {
   return (
-    <Row>
-      <Col>
+    <RowBottom>
+      <ColBottom>
         <Support/>
         <NavStyled>
           <MainMenu/>
         </NavStyled>
-      </Col>
-      <Col>
+      </ColBottom>
+      <ColBottom>
         <MenuSocials/>
         <SelectLanguageWrap>
           <SelectLanguage/>
         </SelectLanguageWrap>
-      </Col>
-    </Row>
+      </ColBottom>
+    </RowBottom>
   );
 }
 

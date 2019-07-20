@@ -21,6 +21,9 @@ const StyledLink = styled(Link)`
   &:hover{
     border-bottom: 1px solid #0075f3;      
   }
+  @media all and (max-width: 1190px){
+    height: 45px !important;
+  }
 `;
 
 const links = [{

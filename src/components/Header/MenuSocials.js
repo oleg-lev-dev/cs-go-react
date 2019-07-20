@@ -11,6 +11,9 @@ const StyledMenu = styled(Menu)`
   li {
     align-items: center;
     margin: 0 0 0 25px;
+    &:first-child {
+      margin-left: 0;    
+    }
   }            
   
   a{
