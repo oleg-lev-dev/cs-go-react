@@ -23,18 +23,20 @@ const SelectLanguageWrap = styled.div`
 `;
 
 const RowBottom = styled(Row)`
-  ${breakpoints.large}{
-    height: auto;
-    padding-top: 20px;   
+  ${breakpoints.normal}{
+    padding-top: 20px;
+    height: auto !important;
+    flex-direction: column;
+    align-items: center;    
   }
+  
 `;
 
 const ColBottom = styled(Col)`
-  ${breakpoints.large}{
-    padding-bottom: 20px;
+  ${breakpoints.normal}{
+    padding-bottom: 20px;    
   }
 `;
-
 
 function HeaderBottom() {
   return (

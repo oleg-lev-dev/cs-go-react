@@ -26,7 +26,7 @@ const StyledButton = styled(Button)`
       margin: 0;
     }
   }
-  ${breakpoints.medium}{
+  ${breakpoints.large}{
     display: none;       
   }
 `;
@@ -53,7 +53,7 @@ const BalanceLink = styled(Link)`
   &:active {
     background-color: #68f1ad;
   }
-  ${breakpoints.medium}{
+  ${breakpoints.large}{
     display: none;       
   }
 `;

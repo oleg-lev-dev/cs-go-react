@@ -13,7 +13,7 @@ const Wrap = styled.a`
     display: block;
     width: 100%;
   }
-  ${breakpoints.medium}{
+  ${breakpoints.large}{
     width: 150px;
     margin-right: 20px;
   }

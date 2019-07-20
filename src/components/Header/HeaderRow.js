@@ -12,6 +12,9 @@ const HeaderRow = styled(Wrap)`
   ${breakpoints.xlarge}{{
     height: 70px;
   } 
+  ${breakpoints.large}{
+    height: 60px;  
+  }
 `;
 
 export default HeaderRow;

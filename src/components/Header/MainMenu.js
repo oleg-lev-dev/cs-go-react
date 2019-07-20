@@ -5,8 +5,11 @@ import {Link, withRouter} from 'react-router-dom';
 import Menu from 'components/Menu'
 import breakpoints from 'utils/breakpoints';
 
-const StyledNav = styled.nav`
+const StyledMenu = styled(Menu)`
   height: 100%;
+  ${breakpoints.small}{
+    flex-direction: column;  
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -23,8 +26,14 @@ const StyledLink = styled(Link)`
     border-bottom: 1px solid #0075f3;      
   }
   ${breakpoints.large}{
-    height: 45px !important;
     margin: 0 15px 0 ${props => props.first ? 0 : '15px'};
+    font-size: 14px;
+  }
+  ${breakpoints.medium}{
+    height: 45px !important;  
+  }
+  ${breakpoints.small}{
+    margin: 0;  
   }
 `;
 
@@ -50,17 +59,15 @@ const links = [{
 
 function MainMenu({location: {pathname}}) {
   return (
-    <StyledNav>
-      <Menu>
-        {links.map(({to, text}, index) => (
-          <li>
-            <StyledLink active={pathname === to}
-                        first={!index}
-                        to={to}>{text}</StyledLink>
-          </li>
-        ))}
-      </Menu>
-    </StyledNav>
+    <StyledMenu>
+      {links.map(({to, text}, index) => (
+        <li>
+          <StyledLink active={pathname === to}
+                      first={!index}
+                      to={to}>{text}</StyledLink>
+        </li>
+      ))}
+    </StyledMenu>
   );
 }
 

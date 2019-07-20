@@ -15,6 +15,7 @@ function Header() {
       <HeaderTop/>
       <Divider/>
       <HeaderBottom/>
+      <Divider/>
     </header>
   );
 }

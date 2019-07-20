@@ -52,8 +52,11 @@ const StyledLinkCsGo = styled.a`
       fill: #ff3c00;  
     }    
   }
-  ${breakpoints.xlarge}{
-    width: 65px;
+  ${breakpoints.xlarge}{{
+    width: 70px;
+  } 
+  ${breakpoints.large}{
+    width: 60px;  
   }
 `;
 
@@ -61,6 +64,10 @@ const StyledMenuItem = styled.li`
   border-right: 1px solid #eaeef1;
   path {
     fill: #fff;  
+  }
+  
+  ${breakpoints.small}{
+    display: none;
   }
 `;
 
@@ -71,7 +78,7 @@ const StyledMenuText = styled.span`
   }
   
   ${breakpoints.large}{
-    padding: 0;
+    
   }
 `;
 
@@ -97,7 +104,7 @@ const IconRounded = styled.span`
   }
   
   ${breakpoints.large}{
-    display: none;
+    //display: none;
   }
 `;
 
