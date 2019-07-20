@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link, withRouter} from 'react-router-dom';
 
 import Menu from 'components/Menu'
-import {Link, withRouter} from 'react-router-dom';
+import breakpoints from 'utils/breakpoints';
 
 const StyledNav = styled.nav`
   height: 100%;
@@ -21,8 +22,9 @@ const StyledLink = styled(Link)`
   &:hover{
     border-bottom: 1px solid #0075f3;      
   }
-  @media all and (max-width: 1190px){
+  ${breakpoints.large}{
     height: 45px !important;
+    margin: 0 15px 0 ${props => props.first ? 0 : '15px'};
   }
 `;
 
@@ -50,9 +52,11 @@ function MainMenu({location: {pathname}}) {
   return (
     <StyledNav>
       <Menu>
-        {links.map(({to, text}) => (
+        {links.map(({to, text}, index) => (
           <li>
-            <StyledLink active={pathname === to} to={to}>{text}</StyledLink>
+            <StyledLink active={pathname === to}
+                        first={!index}
+                        to={to}>{text}</StyledLink>
           </li>
         ))}
       </Menu>

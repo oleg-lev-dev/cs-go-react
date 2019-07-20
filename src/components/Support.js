@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import breakpoints from 'utils/breakpoints';
 import IconSupport from 'icons/support.svg';
 
 const Wrap = styled.div`
@@ -18,6 +19,12 @@ const Wrap = styled.div`
   }
   &:hover{
     background-color: #0075f3;  
+  }
+  
+  ${breakpoints.large}{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
   }
 `;
 

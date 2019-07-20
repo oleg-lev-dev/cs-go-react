@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Menu from 'components/Menu';
-
+import breakpoints from 'utils/breakpoints';
 import IconTelegram from 'icons/telegram.svg';
 import IconSteam from 'icons/steam.svg';
 import IconVk from 'icons/vk.svg';
@@ -24,6 +24,12 @@ const StyledMenu = styled(Menu)`
       path{
         fill: #1b2129;
       }
+    }
+  }
+  
+  ${breakpoints.large}{
+    li {
+      margin: 0 0 0 13px;
     }
   }
 `;

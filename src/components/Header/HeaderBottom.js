@@ -7,6 +7,7 @@ import Row from 'components/Header/HeaderRow';
 import Support from 'components/Support';
 import SelectLanguage from 'components/SelectLanguage';
 import MenuSocials from 'components/Header/MenuSocials';
+import breakpoints from 'utils/breakpoints';
 
 const NavStyled = styled.nav`
   height: 100%;
@@ -15,18 +16,21 @@ const NavStyled = styled.nav`
 const SelectLanguageWrap = styled.div`
   width: 105px;
   margin: 0 0 0 35px;
+  ${breakpoints.large}{
+    width: 76px;
+    margin: 0 0 0 20px;
+  }
 `;
 
 const RowBottom = styled(Row)`
-  @media all and (max-width: 1190px){
+  ${breakpoints.large}{
     height: auto;
-    flex-direction: column;
     padding-top: 20px;   
   }
 `;
 
 const ColBottom = styled(Col)`
-  @media all and (max-width: 1190px){
+  ${breakpoints.large}{
     padding-bottom: 20px;
   }
 `;

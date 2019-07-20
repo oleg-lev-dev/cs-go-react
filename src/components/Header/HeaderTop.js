@@ -9,12 +9,13 @@ import TopMenu from 'components/Header/TopMenu';
 import Col from 'components/Header/HeaderCol';
 import Row from 'components/Header/HeaderRow';
 import MenuDropdown from 'components/Header/MenuDropdown';
+import breakpoints from 'utils/breakpoints';
 
 import IconDice from 'icons/dice.svg';
 import IconPlus from 'icons/plus.svg';
 
 const StyledButton = styled(Button)`
-  @media all and (max-width: 1320px){
+  ${breakpoints.xlarge}{
     width: 45px;
     padding: 0;
     justify-content: center;
@@ -25,8 +26,14 @@ const StyledButton = styled(Button)`
       margin: 0;
     }
   }
-  @media all and (max-width: 1060px){
+  ${breakpoints.medium}{
     display: none;       
+  }
+`;
+
+const StyledProfile = styled(Profile)`
+  ${breakpoints.normal}{
+    display: none;
   }
 `;
 
@@ -46,7 +53,7 @@ const BalanceLink = styled(Link)`
   &:active {
     background-color: #68f1ad;
   }
-  @media all and (max-width: 1060px){
+  ${breakpoints.medium}{
     display: none;       
   }
 `;
@@ -63,7 +70,7 @@ function HeaderTop() {
           <IconDice/>
           <span>Мои ставки</span>
         </StyledButton>
-        <Profile/>
+        <StyledProfile/>
         <BalanceLink to="/balance">
           <IconPlus/>
         </BalanceLink>

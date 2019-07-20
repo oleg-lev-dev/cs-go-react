@@ -6,6 +6,7 @@ import Menu from 'components/Menu';
 import IconDota from 'icons/dota.svg';
 import IconGift from 'icons/gift.svg';
 import IconEyeBox from 'icons/eye-box.svg';
+import breakpoints from 'utils/breakpoints';
 
 const StyledMenu = styled(Menu)`
   li {
@@ -28,7 +29,7 @@ const StyledLink = styled(Link)`
     font-weight: 700;  
   }
   
-  @media all and (max-width: 1190px){
+  ${breakpoints.large}{
     padding: 0 20px;
   }
 `;
@@ -51,6 +52,9 @@ const StyledLinkCsGo = styled.a`
       fill: #ff3c00;  
     }    
   }
+  ${breakpoints.xlarge}{
+    width: 65px;
+  }
 `;
 
 const StyledMenuItem = styled.li`
@@ -66,7 +70,7 @@ const StyledMenuText = styled.span`
     display: block;
   }
   
-  @media all and (max-width: 1190px){
+  ${breakpoints.large}{
     padding: 0;
   }
 `;
@@ -84,7 +88,7 @@ const IconRounded = styled.span`
     background-color: ${props => props.bgColor};  
   }
   
-  @media all and (max-width: 1320px){
+  ${breakpoints.xlarge}{
     background-color: transparent;
     width: 26px;
     path {
@@ -92,7 +96,7 @@ const IconRounded = styled.span`
     }
   }
   
-  @media all and (max-width: 1190px){
+  ${breakpoints.large}{
     display: none;
   }
 `;

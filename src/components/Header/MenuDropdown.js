@@ -2,6 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
+import Profile from 'components/Header/Profile';
+import breakpoints from 'utils/breakpoints';
 import IconCross from 'icons/cross.svg';
 import IconBurger from 'icons/burger.svg';
 import IconDice from 'icons/dice.svg';
@@ -15,6 +17,16 @@ const Wrap = styled.div`
   margin: 0;
   position: relative;
   z-index: 3;
+`;
+
+const StyledProfile = styled(Profile)`
+  border-bottom: 1px solid #f6f7f9;
+  display: none;
+  ${breakpoints.normal}{
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 `;
 
 const Button = styled.div`
@@ -52,6 +64,11 @@ const Dropdown = styled.div`
     margin: 0;
     padding: 0;
   }
+  
+  ${breakpoints.medium}{
+    width: 340px;
+  }
+  
 `;
 
 const DropdownItem = styled.li`
@@ -129,6 +146,7 @@ function MenuDropdown() {
         {isOpen && <IconCross/>}
         {!isOpen && <IconBurger/>}
         {isOpen && <Dropdown>
+          <StyledProfile/>
           <ul>
             <DropdownItem>
               <StyledLink>

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import breakpoints from 'utils/breakpoints';
+
 const Wrap = styled.a`
   display: block;
   text-decoration: none;  
@@ -10,6 +12,10 @@ const Wrap = styled.a`
   img{
     display: block;
     width: 100%;
+  }
+  ${breakpoints.medium}{
+    width: 150px;
+    margin-right: 20px;
   }
 `;
 
