@@ -46,8 +46,8 @@ const BalanceLink = styled(Link)`
   align-items: center;
   justify-content: center;
   svg {
-   width: 12px;
-   height: 12px;   
+    width: 12px;
+    height: 12px;   
   }
   &:hover,
   &:active {

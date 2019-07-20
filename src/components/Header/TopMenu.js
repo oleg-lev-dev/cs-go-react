@@ -58,12 +58,15 @@ const StyledLinkCsGo = styled.a`
   ${breakpoints.large}{
     width: 60px;  
   }
-  ${breakpoints.small}{
-    width: 40px;
+  ${breakpoints.xsmall}{
+    width: 50px;
     svg {
       height: 20px;
       width: 20px;
     } 
+  }
+  ${breakpoints.xsmall}{
+    width: 40px;
   }
 `;
 
@@ -73,7 +76,7 @@ const StyledMenuItem = styled.li`
     fill: #fff;  
   }
   
-  ${breakpoints.small}{
+  ${breakpoints.xsmall}{
     width: 40px;
   }
 `;
@@ -113,7 +116,7 @@ const IconRounded = styled.span`
       background-color: transparent;  
     }
   }
-  ${breakpoints.small}{
+  ${breakpoints.xsmall}{
     svg {
       height: 20px;
       width: 20px;

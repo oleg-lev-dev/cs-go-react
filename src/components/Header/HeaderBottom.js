@@ -17,7 +17,7 @@ const SelectLanguageWrap = styled.div`
   width: 105px;
   margin: 0 0 0 35px;
   ${breakpoints.large}{
-    width: 76px;
+    //width: 76px;
     margin: 0 0 0 20px;
   }
 `;

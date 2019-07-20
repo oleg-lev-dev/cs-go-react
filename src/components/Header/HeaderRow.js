@@ -16,6 +16,9 @@ const HeaderRow = styled(Wrap)`
     height: 60px;  
   }
   ${breakpoints.small}{
+    height: 50px;
+  }
+  ${breakpoints.xsmall}{
     height: 40px;
   }
 `;
