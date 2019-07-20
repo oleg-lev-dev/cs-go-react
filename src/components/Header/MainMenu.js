@@ -29,7 +29,7 @@ const StyledLink = styled(Link)`
     margin: 0 15px 0 ${props => props.first ? 0 : '15px'};
     font-size: 14px;
   }
-  ${breakpoints.medium}{
+  ${breakpoints.normal}{
     height: 45px !important;  
   }
   ${breakpoints.small}{

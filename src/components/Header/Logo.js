@@ -17,6 +17,10 @@ const Wrap = styled.a`
     width: 150px;
     margin-right: 20px;
   }
+  ${breakpoints.small}{
+    width: 115px;
+    margin-right: 15px;
+  }
 `;
 
 function Logo() {

@@ -58,6 +58,13 @@ const StyledLinkCsGo = styled.a`
   ${breakpoints.large}{
     width: 60px;  
   }
+  ${breakpoints.small}{
+    width: 40px;
+    svg {
+      height: 20px;
+      width: 20px;
+    } 
+  }
 `;
 
 const StyledMenuItem = styled.li`
@@ -67,7 +74,7 @@ const StyledMenuItem = styled.li`
   }
   
   ${breakpoints.small}{
-    display: none;
+    width: 40px;
   }
 `;
 
@@ -77,8 +84,8 @@ const StyledMenuText = styled.span`
     display: block;
   }
   
-  ${breakpoints.large}{
-    
+  ${breakpoints.small}{
+    display: none;
   }
 `;
 
@@ -101,10 +108,16 @@ const IconRounded = styled.span`
     path {
       fill: ${(props)=>props.bgColor};
     }
+    
+    &:hover{
+      background-color: transparent;  
+    }
   }
-  
-  ${breakpoints.large}{
-    //display: none;
+  ${breakpoints.small}{
+    svg {
+      height: 20px;
+      width: 20px;
+    } 
   }
 `;
 
