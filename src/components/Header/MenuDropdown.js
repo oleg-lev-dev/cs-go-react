@@ -73,16 +73,32 @@ const StyledLink = styled(Link)`
   align-items: center;
   svg {
     position: absolute;
-    left: 22px;
-    path{
-      fill: #a2abb8;
-    }  
+    left: 22px;  
+  }
+  path {
+    fill: #a2abb8;
   }
   
   &:hover{
     border-left: 2px solid #0b76ff;
     path {
       fill: #0b76ff;    
+    }
+  }
+`;
+
+const StyledExit = styled(StyledLink)`
+  background-color: #0f1118;
+  color: #fff;
+  path {
+    fill: #fff;
+  }  
+  &:hover {
+    background-color: #f6f7f9;
+    border-left: 2px solid transparent;
+    color: #8d99a8;
+    path {
+      fill: #8d99a8;
     }
   }
 `;
@@ -145,10 +161,10 @@ function MenuDropdown() {
               </StyledLink>
             </DropdownItem>
             <DropdownItem>
-              <StyledLink>
+              <StyledExit>
                 <IconExit/>
                 Выйти из аккаунта
-              </StyledLink>
+              </StyledExit>
             </DropdownItem>
           </ul>
         </Dropdown>}
