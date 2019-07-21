@@ -40,7 +40,6 @@ const Button = styled.div`
 
 const Dropdown = styled.div`
   width: 240px;
-  max-height: 365px;
   box-shadow: 0 12px 85px rgba(30, 46, 97, 0.28);
   background-color: #ffffff;
   position: absolute;
@@ -65,8 +64,18 @@ const Dropdown = styled.div`
     padding: 0;
   }
   
-  ${breakpoints.medium}{
-    width: 340px;
+  ${breakpoints.normal}{
+    width: 320px;
+  }
+  
+  ${breakpoints.small}{
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    &:before{
+      display: none;
+    }  
   }
   
 `;
@@ -120,15 +129,30 @@ const StyledExit = styled(StyledLink)`
   }
 `;
 
+const Overlay = styled(StyledLink)`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: .5;
+  display: none;
+  ${breakpoints.small}{
+    display: block;  
+  }
+`;
+
+
 function MenuDropdown() {
   const node = useRef();
 
   const [isOpen, setOpen] = useState(false);
 
   const handleClick = (event) => {
-    if (node.current.contains(event.target)) {
-      return;
-    }
+    // if (node.current.contains(event.target)) {
+    //   return;
+    // }
     setOpen(false);
   };
 
@@ -142,51 +166,51 @@ function MenuDropdown() {
   return (
     <Wrap ref={node}>
       <Button onClick={() => setOpen(!isOpen)}>
-
         {isOpen && <IconCross/>}
         {!isOpen && <IconBurger/>}
-        {isOpen && <Dropdown>
-          <StyledProfile/>
-          <ul>
-            <DropdownItem>
-              <StyledLink>
-                <IconDice/>
-                Мои ставки
-              </StyledLink>
-            </DropdownItem>
-            <DropdownItem>
-              <StyledLink>
-                <IconMoneyIn/>
-                Пополнить баланс
-              </StyledLink>
-            </DropdownItem>
-            <DropdownItem>
-              <StyledLink>
-                <IconMoneyOut/>
-                Вывести средства
-              </StyledLink>
-            </DropdownItem>
-            <DropdownItem>
-              <StyledLink>
-                <IconHistory/>
-                История операций
-              </StyledLink>
-            </DropdownItem>
-            <DropdownItem>
-              <StyledLink>
-                <IconSetup/>
-                Настройки аккаунта
-              </StyledLink>
-            </DropdownItem>
-            <DropdownItem>
-              <StyledExit>
-                <IconExit/>
-                Выйти из аккаунта
-              </StyledExit>
-            </DropdownItem>
-          </ul>
-        </Dropdown>}
       </Button>
+      {isOpen && <Overlay/>}
+      {isOpen && <Dropdown>
+        <StyledProfile/>
+        <ul>
+          <DropdownItem>
+            <StyledLink>
+              <IconDice/>
+              Мои ставки
+            </StyledLink>
+          </DropdownItem>
+          <DropdownItem>
+            <StyledLink>
+              <IconMoneyIn/>
+              Пополнить баланс
+            </StyledLink>
+          </DropdownItem>
+          <DropdownItem>
+            <StyledLink>
+              <IconMoneyOut/>
+              Вывести средства
+            </StyledLink>
+          </DropdownItem>
+          <DropdownItem>
+            <StyledLink>
+              <IconHistory/>
+              История операций
+            </StyledLink>
+          </DropdownItem>
+          <DropdownItem>
+            <StyledLink>
+              <IconSetup/>
+              Настройки аккаунта
+            </StyledLink>
+          </DropdownItem>
+          <DropdownItem>
+            <StyledExit>
+              <IconExit/>
+              Выйти из аккаунта
+            </StyledExit>
+          </DropdownItem>
+        </ul>
+      </Dropdown>}
     </Wrap>
   );
 }
