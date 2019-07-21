@@ -14,10 +14,9 @@ const NavStyled = styled.nav`
 `;
 
 const SelectLanguageWrap = styled.div`
-  width: 105px;
+  width: 97px;
   margin: 0 0 0 35px;
   ${breakpoints.large}{
-    //width: 76px;
     margin: 0 0 0 20px;
   }
 `;

@@ -7,6 +7,9 @@ const SelectWrap = styled.div`
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
+  .react-select__single-value{
+    margin: 0;
+  }
   .react-select__control {
     cursor: pointer;
     width: 100%;
@@ -17,7 +20,9 @@ const SelectWrap = styled.div`
     box-shadow: none;
   }
   .react-select__value-container {
-    padding: 0 15px;
+    padding: 0;
+    height: 100%;
+    justify-content: center;
   }
   .react-select__indicator-separator {
     display: none;
@@ -35,9 +40,9 @@ const SelectWrap = styled.div`
   }
   .react-select__option {
     cursor: pointer;
-    height: 43px;
+    height: 42px;
     display: flex;
-    padding: 0 18px;
+    padding: 0 12px;
     align-items: center;
     background-color: #fff !important;
     &:hover{
@@ -59,7 +64,7 @@ const SelectWrap = styled.div`
     border-width: 7px 3.5px 0 3.5px;
     border-color: #3c4252 transparent transparent transparent;
     padding: 0;
-    margin: 0 19px 0 11px;
+    margin: 0 18px 0 0;
     svg {
       display: none;
     }
@@ -70,6 +75,7 @@ function Select({value, onChange, options}) {
   return (
     <SelectWrap>
       <ReactSelect
+        //menuIsOpen
         classNamePrefix="react-select"
         isSearchable={false}
         value={value}

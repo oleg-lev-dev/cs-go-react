@@ -154,13 +154,16 @@ const Overlay = styled.div`
   ${breakpoints.small}{
     display: block;  
   }
+  @media (min-width: 768px){
+    opacity: 0 !important;
+  }
 `;
 
 const transitionDropdownStyles = {
   entering: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
   entered: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
   exiting: {right: -320, opacity: 0, boxShadow: null, zIndex: 0},
-  exited: {right: -320, opacity: 0, boxShadow: null, zIndex: 0},
+  exited: {right: -320, opacity: 0, boxShadow: null, zIndex: 0, display: 'none'},
 };
 
 const transitionOverlayStyles = {
