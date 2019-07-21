@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Link} from 'react-router-dom';
+import {Transition} from 'react-transition-group';
 import styled from 'styled-components';
 
 import Profile from 'components/Header/Profile';
@@ -36,6 +37,8 @@ const Button = styled.div`
   align-items: center;
   justify-content: flex-end;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 `;
 
 const Dropdown = styled.div`
@@ -73,6 +76,7 @@ const Dropdown = styled.div`
     right: 0;
     top: 0;
     bottom: 0;
+    box-shadow: none;
     &:before{
       display: none;
     }  
@@ -143,6 +147,21 @@ const Overlay = styled(StyledLink)`
   }
 `;
 
+const duration = 300;
+
+const defaultStyle = {
+  transition: `all ${duration}ms ease-in-out`,
+  right: -320,
+  boxShadow: null,
+  zIndex: 0
+};
+
+const transitionStyles = {
+  entering: {right: 0, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
+  entered: {right: 0, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
+  exiting: {right: -320, boxShadow: null, zIndex: 0},
+  exited: {right: -320, boxShadow: null, zIndex: 0},
+};
 
 function MenuDropdown() {
   const node = useRef();
@@ -170,47 +189,56 @@ function MenuDropdown() {
         {!isOpen && <IconBurger/>}
       </Button>
       {isOpen && <Overlay/>}
-      {isOpen && <Dropdown>
-        <StyledProfile/>
-        <ul>
-          <DropdownItem>
-            <StyledLink>
-              <IconDice/>
-              Мои ставки
-            </StyledLink>
-          </DropdownItem>
-          <DropdownItem>
-            <StyledLink>
-              <IconMoneyIn/>
-              Пополнить баланс
-            </StyledLink>
-          </DropdownItem>
-          <DropdownItem>
-            <StyledLink>
-              <IconMoneyOut/>
-              Вывести средства
-            </StyledLink>
-          </DropdownItem>
-          <DropdownItem>
-            <StyledLink>
-              <IconHistory/>
-              История операций
-            </StyledLink>
-          </DropdownItem>
-          <DropdownItem>
-            <StyledLink>
-              <IconSetup/>
-              Настройки аккаунта
-            </StyledLink>
-          </DropdownItem>
-          <DropdownItem>
-            <StyledExit>
-              <IconExit/>
-              Выйти из аккаунта
-            </StyledExit>
-          </DropdownItem>
-        </ul>
-      </Dropdown>}
+      <Transition in={isOpen} timeout={duration}>
+        {state => (
+          <Dropdown style={{
+            ...defaultStyle,
+            ...transitionStyles[state]
+          }}>
+            <>
+              <StyledProfile/>
+              <ul>
+                <DropdownItem>
+                  <StyledLink>
+                    <IconDice/>
+                    Мои ставки
+                  </StyledLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <StyledLink>
+                    <IconMoneyIn/>
+                    Пополнить баланс
+                  </StyledLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <StyledLink>
+                    <IconMoneyOut/>
+                    Вывести средства
+                  </StyledLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <StyledLink>
+                    <IconHistory/>
+                    История операций
+                  </StyledLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <StyledLink>
+                    <IconSetup/>
+                    Настройки аккаунта
+                  </StyledLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <StyledExit>
+                    <IconExit/>
+                    Выйти из аккаунта
+                  </StyledExit>
+                </DropdownItem>
+              </ul>
+            </>
+          </Dropdown>
+        )}
+      </Transition>
     </Wrap>
   );
 }
