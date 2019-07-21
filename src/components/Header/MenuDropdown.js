@@ -39,9 +39,11 @@ const Button = styled.div`
   cursor: pointer;
   position: relative;
   z-index: 1;
-  ${breakpoints.xsmall}{
-    z-index: 4;
-  }
+`;
+
+const ButtonInDropdown = styled(Button)`
+  position: absolute;
+  right: 25px;
 `;
 
 const Dropdown = styled.div`
@@ -50,7 +52,7 @@ const Dropdown = styled.div`
   background-color: #ffffff;
   user-select: none;
   display: block;
-  
+  z-index: 3;  
   &:before {
     content: '';
     display: block;
@@ -91,6 +93,7 @@ const Dropdown = styled.div`
     right: -25px;
     top: 49px;
     transform: translate(25px, 0);
+    opacity: 1 !important;
   }
   
 `;
@@ -166,10 +169,10 @@ const Overlay = styled.div`
 `;
 
 const transitionDropdownStyles = {
-  entering: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
-  entered: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
-  exiting: {right: -320, opacity: 0, boxShadow: null, zIndex: -2},
-  exited: {right: -320, opacity: 0, boxShadow: null, zIndex: -2},
+  entering: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)'},
+  entered: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)'},
+  exiting: {right: -320, opacity: 0, boxShadow: null},
+  exited: {right: -320, opacity: 0, boxShadow: null},
 };
 
 const transitionOverlayStyles = {
@@ -198,65 +201,68 @@ function MenuDropdown() {
     };
   }, []);
 
-  return [
-    <Wrap ref={node}>
-      <Button onClick={() => setOpen(!isOpen)}>
-        {isOpen && <IconCross/>}
-        {!isOpen && <IconBurger/>}
-      </Button>
-      <Transition in={isOpen} timeout={300}>
-        {state => (
-          <Dropdown style={transitionDropdownStyles[state]}>
-            <>
-              <StyledProfile/>
-              <ul>
-                <DropdownItem>
-                  <StyledLink>
-                    <IconDice/>
-                    Мои ставки
-                  </StyledLink>
-                </DropdownItem>
-                <DropdownItem>
-                  <StyledLink>
-                    <IconMoneyIn/>
-                    Пополнить баланс
-                  </StyledLink>
-                </DropdownItem>
-                <DropdownItem>
-                  <StyledLink>
-                    <IconMoneyOut/>
-                    Вывести средства
-                  </StyledLink>
-                </DropdownItem>
-                <DropdownItem>
-                  <StyledLink>
-                    <IconHistory/>
-                    История операций
-                  </StyledLink>
-                </DropdownItem>
-                <DropdownItem>
-                  <StyledLink>
-                    <IconSetup/>
-                    Настройки аккаунта
-                  </StyledLink>
-                </DropdownItem>
-                <DropdownItem>
-                  <StyledExit>
-                    <IconExit/>
-                    Выйти из аккаунта
-                  </StyledExit>
-                </DropdownItem>
-              </ul>
-            </>
-          </Dropdown>
-        )}
+  return (
+    <>
+      <Wrap ref={node}>
+        <Button onClick={() => setOpen(!isOpen)}>
+          {isOpen && <IconCross/>}
+          {!isOpen && <IconBurger/>}
+        </Button>
+        <Transition in={isOpen} timeout={300}>
+          {state => (
+            <Dropdown style={transitionDropdownStyles[state]}>
+              <ButtonInDropdown onClick={() => setOpen(!isOpen)}><IconCross/></ButtonInDropdown>
+              <>
+                <StyledProfile/>
+                <ul>
+                  <DropdownItem>
+                    <StyledLink to="/bets">
+                      <IconDice/>
+                      Мои ставки
+                    </StyledLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <StyledLink to="/balance">
+                      <IconMoneyIn/>
+                      Пополнить баланс
+                    </StyledLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <StyledLink to="/money-out">
+                      <IconMoneyOut/>
+                      Вывести средства
+                    </StyledLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <StyledLink to="/history">
+                      <IconHistory/>
+                      История операций
+                    </StyledLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <StyledLink to="/settings">
+                      <IconSetup/>
+                      Настройки аккаунта
+                    </StyledLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <StyledExit to="/logout">
+                      <IconExit/>
+                      Выйти из аккаунта
+                    </StyledExit>
+                  </DropdownItem>
+                </ul>
+              </>
+            </Dropdown>
+          )}
+        </Transition>
+      </Wrap>
+      <Transition in={isOpen}
+                  timeout={500}>
+        {state => (<Overlay onClick={() => setOpen(false)} style={transitionOverlayStyles[state]}/>)}
       </Transition>
-    </Wrap>,
-    <Transition in={isOpen}
-                timeout={500}>
-      {state => (<Overlay onClick={() => setOpen(false)} style={transitionOverlayStyles[state]}/>)}
-    </Transition>
-  ];
+    </>
+  )
 }
 
 export default MenuDropdown;

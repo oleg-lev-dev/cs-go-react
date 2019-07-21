@@ -21,12 +21,12 @@ const StyledLink = styled(Link)`
   height: 100%;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid ${props => props.active ? '#0075f3' : 'transparent'}; 
+  border-bottom: 1px solid ${props => props.active === 'active' ? '#0075f3' : 'transparent'}; 
   &:hover{
     border-bottom: 1px solid #0075f3;      
   }
   ${breakpoints.large}{
-    margin: 0 15px 0 ${props => props.first ? 0 : '15px'};
+    margin: 0 15px 0 ${props => props.index === 1 ? 0 : '15px'};
     font-size: 14px;
   }
   ${breakpoints.normal}{
@@ -61,9 +61,9 @@ function MainMenu({location: {pathname}}) {
   return (
     <StyledMenu>
       {links.map(({to, text}, index) => (
-        <li>
-          <StyledLink active={pathname === to}
-                      first={!index}
+        <li key={to}>
+          <StyledLink active={(pathname === to).toString()}
+                      index={index}
                       to={to}>{text}</StyledLink>
         </li>
       ))}

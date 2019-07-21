@@ -20,7 +20,7 @@ const StyledLink = styled(Link)`
   font-weight: 300;
   line-height: 18px;
   color: ${props => props.color};
-  border-bottom: 2px solid ${props => props.active ? props.color : 'transparent'};
+  border-bottom: 2px solid ${props => props.active === 'active' ? props.color : 'transparent'};
   padding: 0 28px; 
   &:hover{
     border-bottom-color: ${props => props.color};      
@@ -109,7 +109,7 @@ const IconRounded = styled.span`
     background-color: transparent;
     width: 26px;
     path {
-      fill: ${(props)=>props.bgColor};
+      fill: ${(props) => props.bgColor};
     }
     
     &:hover{
@@ -144,9 +144,9 @@ function TopMenu({location: {pathname}}) {
           <IconDota/>
         </StyledLinkCsGo>
       </li>
-      {links.map((link, index) => (<StyledMenuItem key={index}>
+      {links.map((link, index) => (<StyledMenuItem key={link.to}>
         <StyledLink to={link.to}
-                    active={pathname === link.to}
+                    active={(pathname === link.to).toString()}
                     color={link.color}>
           <IconRounded bgColor={link.color}>
             {link.icon}

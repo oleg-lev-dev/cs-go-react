@@ -66,7 +66,7 @@ function HeaderTop() {
         <TopMenu/>
       </Col>
       <Col>
-        <StyledButton>
+        <StyledButton to="/balance">
           <IconDice/>
           <span>Мои ставки</span>
         </StyledButton>

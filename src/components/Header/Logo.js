@@ -1,9 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import breakpoints from 'utils/breakpoints';
 
-const Wrap = styled.a`
+const Wrap = styled(Link)`
   display: block;
   text-decoration: none;  
   width: 193px;
@@ -25,7 +26,7 @@ const Wrap = styled.a`
 
 function Logo() {
   return (
-    <Wrap>
+    <Wrap to="/">
       <img src='/images/logo.png' alt=""/>
     </Wrap>
   );
