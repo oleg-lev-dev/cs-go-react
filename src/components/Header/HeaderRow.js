@@ -8,7 +8,8 @@ const HeaderRow = styled(Wrap)`
   height: 90px;             
   display: flex;
   justify-content: space-between;
-  
+  position: relative;
+  z-index: 2;  
   ${breakpoints.xlarge}{{
     height: 70px;
   } 

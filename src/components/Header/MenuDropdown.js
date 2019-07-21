@@ -49,7 +49,8 @@ const Dropdown = styled.div`
   box-shadow: 0 12px 85px rgba(30, 46, 97, 0.28);
   background-color: #ffffff;
   user-select: none;
-  transition: all 300ms ease-in-out;
+  display: block;
+  
   &:before {
     content: '';
     display: block;
@@ -74,11 +75,12 @@ const Dropdown = styled.div`
   
   ${breakpoints.small}{
     position: fixed;
-    right: 0;
+    right: -320px;
     top: 0;
     bottom: 0;
     box-shadow: none;
     opacity: 1 !important;
+    transition: right 300ms ease-in-out;
     &:before{
       display: none;
     }  
@@ -86,8 +88,9 @@ const Dropdown = styled.div`
   
   @media (min-width: 768px){
     position: absolute;
-    right: -25px !important;
-    top: 49px !important;
+    right: -25px;
+    top: 49px;
+    transform: translate(25px, 0);
   }
   
 `;
@@ -149,7 +152,7 @@ const Overlay = styled.div`
   bottom: 0;
   background: #000;
   display: none;
-  transition: all 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
   z-index: 2;
   ${breakpoints.small}{
     display: block;  
@@ -157,20 +160,23 @@ const Overlay = styled.div`
   @media (min-width: 768px){
     opacity: 0 !important;
   }
+  ${breakpoints.small}{
+     transform: translate(-100%, -100%);
+  }
 `;
 
 const transitionDropdownStyles = {
   entering: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
   entered: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
-  exiting: {right: -320, opacity: 0, boxShadow: null, zIndex: 0},
-  exited: {right: -320, opacity: 0, boxShadow: null, zIndex: 0, display: 'none'},
+  exiting: {right: -320, opacity: 0, boxShadow: null, zIndex: -2},
+  exited: {right: -320, opacity: 0, boxShadow: null, zIndex: -2},
 };
 
 const transitionOverlayStyles = {
-  entering: {opacity: 0.5, display: 'block'},
-  entered: {opacity: 0.5},
+  entering: {opacity: 0.5, display: 'block', transform: 'translate(0,0)'},
+  entered: {opacity: 0.5, transform: 'translate(0,0)'},
   exiting: {opacity: 0},
-  exited: {opacity: 0, display: 'none'},
+  exited: {opacity: 0, transform: 'translate(-100%,-100%)'},
 };
 
 function MenuDropdown() {

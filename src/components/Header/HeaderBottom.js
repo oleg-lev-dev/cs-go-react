@@ -22,6 +22,8 @@ const SelectLanguageWrap = styled.div`
 `;
 
 const RowBottom = styled(Row)`
+  position: relative;
+  z-index: 1;
   ${breakpoints.normal}{
     padding-top: 20px;
     height: auto !important;

@@ -144,7 +144,7 @@ function TopMenu({location: {pathname}}) {
           <IconDota/>
         </StyledLinkCsGo>
       </li>
-      {links.map((link) => (<StyledMenuItem>
+      {links.map((link, index) => (<StyledMenuItem key={index}>
         <StyledLink to={link.to}
                     active={pathname === link.to}
                     color={link.color}>

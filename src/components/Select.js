@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import ReactSelect from 'react-select';
 
+import breakpoints from 'utils/breakpoints';
+
 const SelectWrap = styled.div`
   color: #3c4252;
   font-size: 14px;
@@ -18,6 +20,9 @@ const SelectWrap = styled.div`
     border: 1px solid #e8ebf5 !important;
     background-color: #fff;
     box-shadow: none;
+    ${breakpoints.normal}{
+      height: 38px;
+    }
   }
   .react-select__value-container {
     padding: 0;
@@ -47,6 +52,9 @@ const SelectWrap = styled.div`
     background-color: #fff !important;
     &:hover{
       background-color: #f7f9fc !important;
+    }
+    ${breakpoints.normal}{
+      height: 37px;
     }
   }      
   .react-select__option--is-selected {
