@@ -45,7 +45,7 @@ const SelectWrap = styled.div`
   }
   .react-select__option {
     cursor: pointer;
-    height: 42px;
+    height: 43px;
     display: flex;
     padding: 0 12px;
     align-items: center;
