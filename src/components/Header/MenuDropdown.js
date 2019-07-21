@@ -39,16 +39,17 @@ const Button = styled.div`
   cursor: pointer;
   position: relative;
   z-index: 1;
+  ${breakpoints.xsmall}{
+    z-index: 4;
+  }
 `;
 
 const Dropdown = styled.div`
   width: 240px;
   box-shadow: 0 12px 85px rgba(30, 46, 97, 0.28);
   background-color: #ffffff;
-  position: absolute;
-  right: -26px;
-  top: 49px;
   user-select: none;
+  transition: all 300ms ease-in-out;
   &:before {
     content: '';
     display: block;
@@ -77,9 +78,16 @@ const Dropdown = styled.div`
     top: 0;
     bottom: 0;
     box-shadow: none;
+    opacity: 1 !important;
     &:before{
       display: none;
     }  
+  }
+  
+  @media (min-width: 768px){
+    position: absolute;
+    right: -25px !important;
+    top: 49px !important;
   }
   
 `;
@@ -133,34 +141,33 @@ const StyledExit = styled(StyledLink)`
   }
 `;
 
-const Overlay = styled(StyledLink)`
+const Overlay = styled.div`
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   background: #000;
-  opacity: .5;
   display: none;
+  transition: all 500ms ease-in-out;
+  z-index: 2;
   ${breakpoints.small}{
     display: block;  
   }
 `;
 
-const duration = 300;
-
-const defaultStyle = {
-  transition: `all ${duration}ms ease-in-out`,
-  right: -320,
-  boxShadow: null,
-  zIndex: 0
+const transitionDropdownStyles = {
+  entering: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
+  entered: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
+  exiting: {right: -320, opacity: 0, boxShadow: null, zIndex: 0},
+  exited: {right: -320, opacity: 0, boxShadow: null, zIndex: 0},
 };
 
-const transitionStyles = {
-  entering: {right: 0, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
-  entered: {right: 0, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
-  exiting: {right: -320, boxShadow: null, zIndex: 0},
-  exited: {right: -320, boxShadow: null, zIndex: 0},
+const transitionOverlayStyles = {
+  entering: {opacity: 0.5, display: 'block'},
+  entered: {opacity: 0.5},
+  exiting: {opacity: 0},
+  exited: {opacity: 0, display: 'none'},
 };
 
 function MenuDropdown() {
@@ -182,19 +189,15 @@ function MenuDropdown() {
     };
   }, []);
 
-  return (
+  return [
     <Wrap ref={node}>
       <Button onClick={() => setOpen(!isOpen)}>
         {isOpen && <IconCross/>}
         {!isOpen && <IconBurger/>}
       </Button>
-      {isOpen && <Overlay/>}
-      <Transition in={isOpen} timeout={duration}>
+      <Transition in={isOpen} timeout={300}>
         {state => (
-          <Dropdown style={{
-            ...defaultStyle,
-            ...transitionStyles[state]
-          }}>
+          <Dropdown style={transitionDropdownStyles[state]}>
             <>
               <StyledProfile/>
               <ul>
@@ -239,8 +242,12 @@ function MenuDropdown() {
           </Dropdown>
         )}
       </Transition>
-    </Wrap>
-  );
+    </Wrap>,
+    <Transition in={isOpen}
+                timeout={500}>
+      {state => (<Overlay onClick={() => setOpen(false)} style={transitionOverlayStyles[state]}/>)}
+    </Transition>
+  ];
 }
 
 export default MenuDropdown;
