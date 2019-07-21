@@ -14,6 +14,13 @@ import breakpoints from 'utils/breakpoints';
 import IconDice from 'icons/dice.svg';
 import IconPlus from 'icons/plus.svg';
 
+const StyledRow = styled(Row)`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin-top: 0 !important;
+`;
 const StyledButton = styled(Button)`
   ${breakpoints.xlarge}{
     width: 45px;
@@ -60,7 +67,7 @@ const BalanceLink = styled(Link)`
 
 function HeaderTop() {
   return (
-    <Row>
+    <StyledRow>
       <Col>
         <Logo/>
         <TopMenu/>
@@ -76,7 +83,7 @@ function HeaderTop() {
         </BalanceLink>
         <MenuDropdown/>
       </Col>
-    </Row>
+    </StyledRow>
   );
 }
 

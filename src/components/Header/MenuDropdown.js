@@ -43,7 +43,12 @@ const Button = styled.div`
 
 const ButtonInDropdown = styled(Button)`
   position: absolute;
-  right: 25px;
+  top: 12px;
+  right: 2px;
+  display: none;
+  ${breakpoints.small}{
+    display: block;
+  }
 `;
 
 const Dropdown = styled.div`
@@ -52,7 +57,7 @@ const Dropdown = styled.div`
   background-color: #ffffff;
   user-select: none;
   display: block;
-  z-index: 3;  
+  
   &:before {
     content: '';
     display: block;
@@ -93,7 +98,6 @@ const Dropdown = styled.div`
     right: -25px;
     top: 49px;
     transform: translate(25px, 0);
-    opacity: 1 !important;
   }
   
 `;
@@ -169,10 +173,10 @@ const Overlay = styled.div`
 `;
 
 const transitionDropdownStyles = {
-  entering: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)'},
-  entered: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)'},
-  exiting: {right: -320, opacity: 0, boxShadow: null},
-  exited: {right: -320, opacity: 0, boxShadow: null},
+  entering: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
+  entered: {right: 0, opacity: 1, boxShadow: '0 12px 85px rgba(30, 46, 97, 0.28)', zIndex: 3},
+  exiting: {right: -320, opacity: 0, boxShadow: null, zIndex: -2},
+  exited: {right: -320, opacity: 0, boxShadow: null, zIndex: -2},
 };
 
 const transitionOverlayStyles = {
