@@ -11,7 +11,6 @@ const HeaderRow = styled(Wrap)`
   z-index: 2;  
   border-bottom: 1px solid #eff2f5;
   background: #fff;
-  margin-top: 90px;
   ${breakpoints.xlarge}{{
     height: 70px;
     margin-top: 70px;
